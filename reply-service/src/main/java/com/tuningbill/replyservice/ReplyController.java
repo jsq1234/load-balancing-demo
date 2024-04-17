@@ -19,6 +19,11 @@ import java.util.List;
 public class ReplyController {
     private final ReplyService replyService;
 
+    @GetMapping
+    public ResponseEntity<?> okHealthCheck(){
+        return ResponseEntity.ok().build();
+    }
+    
     @GetMapping("/replies")
     public List<Reply> getRepliesByPostId(@RequestParam("postId") Long postId) {
         return replyService.getRepliesByPostId(postId);
